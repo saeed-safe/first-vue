@@ -5,6 +5,8 @@ import HomeView from "@/views/HomeView.vue";
 import LoginView from "@/views/Auth/LoginView.vue";
 import { useAuthStore } from "@/stores/auth";
 import CreateView from "@/views/Posts/CreateView.vue";
+import ShowView from "@/views/Posts/ShowView.vue";
+import UpdateView from "@/views/Posts/UpdateView.vue";
 const routes = [
   { path: "/", name: "home", component: HomeView },
   {
@@ -23,6 +25,17 @@ const routes = [
     path: "/create",
     name: "create",
     component: CreateView,
+    meta: { auth: true },
+  },
+  {
+    path: "/posts/:id",
+    name: "show",
+    component: ShowView,
+  },
+  {
+    path: "/posts/update/:id",
+    name: "update",
+    component: UpdateView,
     meta: { auth: true },
   },
 ];
